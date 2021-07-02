@@ -29,15 +29,12 @@ def recite(start_verse, end_verse):
 
     fixed_verse = ("On the " + day_word[end_verse] + " day of Christmas my true love gave to me: ")
 
-    fin_recite = []
+    fin_recite = ""
 
     if end_verse == 1:
-        fin_recite.append('a Partridge in a Pear Tree.')
+        fin_recite += 'a Partridge in a Pear Tree.'
     else:
-        for i in range(end_verse):
-            fin_recite.append(day_verse[i])
+        for i in range(end_verse - 1, start_verse - 2, -1):
+            fin_recite += day_verse[i]
 
-    fin_recite.reverse()
-
-    return fixed_verse + str(fin_recite)
-
+    return [fixed_verse + fin_recite]
